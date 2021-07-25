@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CountryComponent } from './Location/country/country/country.component';
+import { CountryComponent } from './Area/country/country.component';
+
 
 @NgModule({
   declarations: [

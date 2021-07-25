@@ -1,8 +1,8 @@
-import { Location } from './location';
+import { Area } from './area';
 
-export let COUNTRY: Location[] = [
-    {code: "IRI", name: "ایران"},
-    {code: "BRZ", name: "برزیل"},
-    {code: "GER", name: "آلمان"},
-    {code: "SPN", name: "اسپانیا"}
+export let COUNTRY: Area[] = [
+    {code: 'IRI', name: 'ایران'},
+    {code: 'BRZ', name: 'برزیل'},
+    {code: 'GER', name: 'آلمان'},
+    {code: 'SPN', name: 'اسپانیا'}
 ];

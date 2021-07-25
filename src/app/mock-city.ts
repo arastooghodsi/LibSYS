@@ -1,6 +1,6 @@
-import { Location } from './location';
+import { Area } from './area';
 
-export let CITY: Location[] = [
+export let CITY: Area[] = [
     {code: "TEH", name: "تهران"},
     {code: "HAM", name: "همدان"},
     {code: "RSH", name: "رشت"},
