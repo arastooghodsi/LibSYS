@@ -16,32 +16,19 @@
   </tbody>
 </table>
 <!-- New Country -->
-<form [formGroup]="inputForm" (ngSubmit) = "onSubmit()">
+<!-- <form [formGroup]="inputForm"> -->
   <div *ngIf="isNew">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="code">کد کشور</label>
-        <input formControlName="code" type="text" ngModel name="code" class="form-control" id="code" #code placeholder="کد کشور">
-        <!-- <span class="alert alert-danger"
-              *ngIf="!inputForm.controls['code'].valid && inputForm.controls['code'].touched">
-                لطفا کد کشور را وارد کنید!
-        </span> -->
-      </div>
-  
-      <br>
-  
-      <div class="form-group col-md-6">
-        <label for="name">نام کشور</label>
-        <input formControlName="name" type="text" ngModel name="name" class="form-control" id="name" #name placeholder="نام کشور">
-        <!-- <span class="alert alert-danger"
-              *ngIf="!inputForm.controls['name'].valid && inputForm.controls['name'].touched">
-                لطفا نام معتبری را برای کشور وارد کنید!
-        </span> -->
-      </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" #code placeholder="کد کشور">
+      <label for="floatingInput">کد کشور</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" #name placeholder="نام کشور">
+      <label for="floatingPassword">نام کشور</label>
+    </div>
     <div class="col-2">
         <button class="btn btn-primary form-control" type="submit" (click) = "addCountry(code.value, name.value)">ذخیره کن</button>
     </div>
   </div>
-  </div>
-</form>
+<!-- </form> -->
 
