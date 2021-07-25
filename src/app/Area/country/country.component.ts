@@ -15,6 +15,10 @@ export class CountryComponent implements OnInit {
   countries: Area[] = [];
   forIndex: number = 1;
   isNew: boolean = false;
+  isSelect: boolean = false;
+  codeSelected: string = '';
+  nameSelected: string = '';
+  selectedIndex: number = 0;
 
   constructor(private areaService: AreaService) { }
 
@@ -32,12 +36,29 @@ export class CountryComponent implements OnInit {
 
   newCountry(): void {
     this.isNew = true;
+    this.isSelect = false;
   }
 
   addCountry(newCode: string, newName: string): void {
     let newcountry: Area = {code: newCode, name: newName};
     this.areaService.addCountry(newcountry);
-    
+  }
+
+  updateCountry(newCode: string, newName: string): void {
+    let newcountry: Area = {code: newCode, name: newName};
+    this.areaService.updateCountry(newcountry, this.selectedIndex);
+  }
+
+  deleteCountry(): void {
+    this.areaService.deleteCountry(this.selectedIndex);
+  }
+
+  selectRow(myIndex: number): void {
+    this.isSelect = true;
+    this.isNew = false;
+    this.selectedIndex = myIndex;
+    this.codeSelected = this.countries[myIndex].code;
+    this.nameSelected = this.countries[myIndex].name;
   }
 
 }

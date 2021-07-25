@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let country of countries; let i = index">
+    <tr *ngFor="let country of countries; let i = index" (click) = "selectRow(i)">
       <th scope="row">{{i+1}}</th>
       <td>{{country.code}}</td>
       <td>{{country.name}}</td>
@@ -31,4 +31,20 @@
     </div>
   </div>
 <!-- </form> -->
-
+<!-- Update Country -->
+<div *ngIf="isSelect">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="codeSelected" #code placeholder="کد کشور">
+    <label for="floatingInput">کد کشور</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" id="floatingPassword" [(ngModel)]="nameSelected" #name placeholder="نام کشور">
+    <label for="floatingPassword">نام کشور</label>
+  </div>
+  <div class="col-2">
+      <button class="btn btn-primary form-control" type="submit" (click) = "updateCountry(code.value, name.value)">تغییر بده</button>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-primary form-control" type="submit" (click) = "deleteCountry()">حذف کن</button>
+  </div>
+</div>
