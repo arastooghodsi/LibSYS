@@ -1,4 +1,8 @@
-<button type="button" (click) = "newCountry()">جدید</button>
+<button class="btn btn-primary" type="button" (click) = "newCountry()">جدید</button><br><br>
+<!-- <div class="form-floating">
+  <input type="text" id="searchInput" #searchInput ngModel class="form-control" placeholder="عبارت مورد جستجو را وارد کند...">
+  <label for="searchInput">عبارت مورد جستجو را وارد کند...</label>
+</div> -->
 <table class="table">
   <thead>
     <tr>
@@ -25,7 +29,7 @@
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingPassword" #name placeholder="نام کشور">
       <label for="floatingPassword">نام کشور</label>
-    </div>
+    </div><br>
     <div class="col-2">
         <button class="btn btn-primary form-control" type="submit" (click) = "addCountry(code.value, name.value)">ذخیره کن</button>
     </div>
@@ -40,10 +44,10 @@
   <div class="form-floating">
     <input type="text" class="form-control" id="floatingPassword" [(ngModel)]="nameSelected" #name placeholder="نام کشور">
     <label for="floatingPassword">نام کشور</label>
-  </div>
+  </div><br>
   <div class="col-2">
       <button class="btn btn-primary form-control" type="submit" (click) = "updateCountry(code.value, name.value)">تغییر بده</button>
-  </div>
+  </div><br>
   <div class="col-2">
     <button class="btn btn-primary form-control" type="submit" (click) = "deleteCountry()">حذف کن</button>
   </div>
