@@ -26,10 +26,6 @@ export class AreaService {
   }
 
   deleteCountry(item: Area) {
-    // for(let i = selectedIndex; i<COUNTRY.length; i++) {
-    //   Promise.resolve(COUNTRY).then((countries: Area[]) => countries[i] = undefined);
-    // }
-    // Promise.resolve(COUNTRY).then()
     COUNTRY.forEach((value, index) => {
       if(value == item)
         COUNTRY.splice(index, 1)
