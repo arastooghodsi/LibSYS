@@ -3,6 +3,7 @@ import { COUNTRY } from './mock-country';
 import { PROVINCE } from './mock-province';
 import { CITY } from './mock-city';
 import { Area } from './area';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,15 @@ export class AreaService {
     Promise.resolve(COUNTRY).then((countries: Area[]) => countries[selectedIndex].name = country.name);
   }
 
-  deleteCountry(selectedIndex: number) {
-    for(let i = selectedIndex; i<COUNTRY.length; i++) {
-      Promise.resolve(COUNTRY).then((countries: Area[]) => countries[i] = countries[i+1]);
-    }
+  deleteCountry(item: Area) {
+    // for(let i = selectedIndex; i<COUNTRY.length; i++) {
+    //   Promise.resolve(COUNTRY).then((countries: Area[]) => countries[i] = undefined);
+    // }
+    // Promise.resolve(COUNTRY).then()
+    COUNTRY.forEach((value, index) => {
+      if(value == item)
+        COUNTRY.splice(index, 1)
+    });
   }
 
 }

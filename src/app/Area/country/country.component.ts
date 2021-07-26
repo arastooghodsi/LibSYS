@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AreaService } from 'src/app/area.service';
 import { Area } from 'src/app/area';
+import { COUNTRY } from 'src/app/mock-country';
 import { formatCurrency } from '@angular/common';
 import { FormGroup } from '@angular/forms';
 
@@ -13,7 +14,7 @@ export class CountryComponent implements OnInit {
 
   inputForm!: FormGroup;
   countries: Area[] = [];
-  forIndex: number = 1;
+  tablesRow: number = COUNTRY.length;
   isNew: boolean = false;
   isSelect: boolean = false;
   codeSelected: string = '';
@@ -42,15 +43,24 @@ export class CountryComponent implements OnInit {
   addCountry(newCode: string, newName: string): void {
     let newcountry: Area = {code: newCode, name: newName};
     this.areaService.addCountry(newcountry);
+    this.isSelect = false;
+    this.isNew = false;
   }
 
   updateCountry(newCode: string, newName: string): void {
     let newcountry: Area = {code: newCode, name: newName};
     this.areaService.updateCountry(newcountry, this.selectedIndex);
+    this.isSelect = false;
+    this.isNew = false;
   }
 
   deleteCountry(): void {
-    this.areaService.deleteCountry(this.selectedIndex);
+
+    
+
+    this.areaService.deleteCountry(this.countries[this.selectedIndex]);
+    this.isSelect = false;
+    this.isNew = false;
   }
 
   selectRow(myIndex: number): void {
