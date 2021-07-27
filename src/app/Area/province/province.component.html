@@ -1,0 +1,62 @@
+<button class="btn btn-primary" type="button" (click) = "newProvince()">جدید</button><br><br>
+
+<div class="form-floating">
+  <input type="text" id="searchInput" #searchInputt 
+        [(ngModel)] = searchInput class="form-control" 
+        placeholder="عبارت مورد جستجو را وارد کند..."
+        (input) = "inputSearch()"
+        />
+  <label for="searchInput">عبارت مورد جستجو را وارد کند...</label>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ردیف</th>
+      <th scope="col">کد استان</th>
+      <th scope="col">نام استان</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let province of provinces | searchFilter: searchInput; let i = index" (click) = "selectRow(i)">
+      <th scope="row">{{i+1}}</th>
+      <td>{{province.code}}</td>
+      <td>{{province.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- New Province -->
+<!-- <form [formGroup]="inputForm"> -->
+  <div *ngIf="isNew">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" #code placeholder="کد استان">
+      <label for="floatingInput">کد استان</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" #name placeholder="نام استان">
+      <label for="floatingPassword">نام استان</label>
+    </div><br>
+    <div class="col-2">
+        <button class="btn btn-primary form-control" type="submit" (click) = "addProvince(code.value, name.value)">ذخیره کن</button>
+    </div>
+  </div>
+<!-- </form> -->
+
+<!-- Update Province -->
+<div *ngIf="isSelect">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="codeSelected" #code placeholder="کد استان">
+    <label for="floatingInput">کد استان</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" id="floatingPassword" [(ngModel)]="nameSelected" #name placeholder="نام استان">
+    <label for="floatingPassword">نام استان</label>
+  </div><br>
+  <div class="col-2">
+      <button class="btn btn-primary form-control" type="submit" (click) = "updateProvince(code.value, name.value)">تغییر بده</button>
+  </div><br>
+  <div class="col-2">
+    <button class="btn btn-primary form-control" type="submit" (click) = "deleteProvince()">حذف کن</button>
+  </div>
+</div>

@@ -12,6 +12,7 @@ export class AreaService {
 
   constructor() { }
 
+  // Country Services
   getCountry() {
     return Promise.resolve(COUNTRY);
   }
@@ -32,4 +33,26 @@ export class AreaService {
     });
   }
 
+  // Province services
+  getProvince() {
+    return Promise.resolve(PROVINCE);
+  }
+
+  addProvince(province: Area) {
+    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces.push(province));
+  }
+
+  updateProvince(province: Area, selectedIndex: number) {
+    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces[selectedIndex].code = province.code);
+    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces[selectedIndex].name = province.name);
+  }
+
+  deleteProvince(item: Area) {
+    PROVINCE.forEach((value, index) => {
+      if(value == item)
+        PROVINCE.splice(index, 1)
+    });
+  }
+
+  
 }

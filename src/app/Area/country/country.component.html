@@ -1,8 +1,13 @@
 <button class="btn btn-primary" type="button" (click) = "newCountry()">جدید</button><br><br>
-<!-- <div class="form-floating">
-  <input type="text" id="searchInput" #searchInput ngModel class="form-control" placeholder="عبارت مورد جستجو را وارد کند...">
+<div class="form-floating">
+  <input type="text" id="searchInput" #searchInputt 
+        [(ngModel)] = searchInput class="form-control" 
+        placeholder="عبارت مورد جستجو را وارد کند..."
+        (input) = "inputSearch()"
+        />
   <label for="searchInput">عبارت مورد جستجو را وارد کند...</label>
-</div> -->
+</div>
+<h1>{{searchInput}}</h1>
 <table class="table">
   <thead>
     <tr>
@@ -12,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let country of countries; let i = index" (click) = "selectRow(i)">
+    <tr *ngFor="let country of countries | searchFilter: searchInput; let i = index" (click) = "selectRow(i)">
       <th scope="row">{{i+1}}</th>
       <td>{{country.code}}</td>
       <td>{{country.name}}</td>
