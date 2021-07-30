@@ -4,9 +4,12 @@
   <input type="text" id="searchInput" #searchInputt 
         [(ngModel)] = searchInput class="form-control" 
         placeholder="عبارت مورد جستجو را وارد کند..."
-        (input) = "inputSearch()"
+        (onkeyup) = "inputSearch()"
         />
   <label for="searchInput">عبارت مورد جستجو را وارد کند...</label>
+  <ul id="provinceList" *ngFor="let province of provinces">
+    <li>{{province.name}}</li>
+  </ul>
 </div>
 
 <table class="table">
