@@ -25,6 +25,7 @@ export class ProvinceComponent implements OnInit {
   isNameDuplicate: boolean = false;
   isDuplicateProvince: boolean = false;
   searchInput: string = '';
+  provinceList: string = '';
   isSearch: boolean = false;
 
 
@@ -75,6 +76,18 @@ export class ProvinceComponent implements OnInit {
 
   inputSearch() {
     this.isSearch = true;
+    let input = document.getElementById(this.searchInput);
+    let ul = document.getElementById(this.provinceList);
+    let li = ul?.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      let txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(input) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+  }
   }
 
   selectRow(myIndex: number): void {
