@@ -1,4 +1,4 @@
-import { City, Country, Province } from './area';
+import { City, Country, Province } from './region';
 
 export let COUNTRY: Country[] = [
     {code: 'IRI', name: 'ایران'},
