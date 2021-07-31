@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { COUNTRY } from './mock-country';
-import { PROVINCE } from './mock-province';
-import { CITY } from './mock-city';
-import { Area } from './area';
-import { Observable } from 'rxjs';
+import { COUNTRY, PROVINCE, CITY } from './mock';
+import { Country, Province, City } from './area';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +14,16 @@ export class AreaService {
     return Promise.resolve(COUNTRY);
   }
 
-  addCountry(country: Area) {
-    Promise.resolve(COUNTRY).then((countries: Area[]) => countries.push(country));
+  addCountry(country: Country) {
+    Promise.resolve(COUNTRY).then((countries: Country[]) => countries.push(country));
   }
 
-  updateCountry(country: Area, selectedIndex: number) {
-    Promise.resolve(COUNTRY).then((countries: Area[]) => countries[selectedIndex].code = country.code);
-    Promise.resolve(COUNTRY).then((countries: Area[]) => countries[selectedIndex].name = country.name);
+  updateCountry(country: Country, selectedIndex: number) {
+    Promise.resolve(COUNTRY).then((countries: Country[]) => countries[selectedIndex].code = country.code);
+    Promise.resolve(COUNTRY).then((countries: Country[]) => countries[selectedIndex].name = country.name);
   }
 
-  deleteCountry(item: Area) {
+  deleteCountry(item: Country) {
     COUNTRY.forEach((value, index) => {
       if(value == item)
         COUNTRY.splice(index, 1)
@@ -38,21 +35,42 @@ export class AreaService {
     return Promise.resolve(PROVINCE);
   }
 
-  addProvince(province: Area) {
-    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces.push(province));
+  addProvince(province: Province) {
+    Promise.resolve(PROVINCE).then((provinces: Province[]) => provinces.push(province));
   }
 
-  updateProvince(province: Area, selectedIndex: number) {
-    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces[selectedIndex].code = province.code);
-    Promise.resolve(PROVINCE).then((provinces: Area[]) => provinces[selectedIndex].name = province.name);
+  updateProvince(province: Province, selectedIndex: number) {
+    Promise.resolve(PROVINCE).then((provinces: Province[]) => provinces[selectedIndex].code = province.code);
+    Promise.resolve(PROVINCE).then((provinces: Province[]) => provinces[selectedIndex].name = province.name);
+    Promise.resolve(PROVINCE).then((provinces: Province[]) => provinces[selectedIndex].countryName = province.countryName);
   }
 
-  deleteProvince(item: Area) {
+  deleteProvince(item: Province) {
     PROVINCE.forEach((value, index) => {
       if(value == item)
         PROVINCE.splice(index, 1)
     });
   }
 
+    // City Services
+    getCity() {
+      return Promise.resolve(CITY);
+    }
+  
+    addCity(city: City) {
+      Promise.resolve(CITY).then((cities: City[]) => cities.push(city));
+    }
+  
+    updateCity(city: City, selectedIndex: number) {
+      Promise.resolve(CITY).then((cities: City[]) => cities[selectedIndex].code = city.code);
+      Promise.resolve(CITY).then((cities: City[]) => cities[selectedIndex].name = city.name);
+    }
+  
+    deleteCity(item: City) {
+      CITY.forEach((value, index) => {
+        if(value == item)
+          CITY.splice(index, 1)
+      });
+    }
   
 }

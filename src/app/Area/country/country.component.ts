@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AreaService } from 'src/app/area.service';
-import { Area } from 'src/app/area';
 import { COUNTRY } from 'src/app/mock-country';
 import { FormGroup } from '@angular/forms';
+import { Country } from 'src/app/area';
 
 @Component({
   selector: 'app-country',
@@ -13,8 +13,8 @@ export class CountryComponent implements OnInit {
 
   // Variables
   inputForm!: FormGroup;
-  countries: Area[] = [];
-  allCounrties: Area[] = [];
+  countries: Country[] = [];
+  allCounrties: Country[] = [];
   tablesRow: number = COUNTRY.length;
   isNew: boolean = false;
   isSelect: boolean = false;
@@ -38,7 +38,7 @@ export class CountryComponent implements OnInit {
   }
 
   getCountry(): void {
-    this.areaService.getCountry().then((countries: Area[]) => this.countries = countries);
+    this.areaService.getCountry().then((countries: Country[]) => this.countries = countries);
   }
 
   newCountry(): void {
@@ -47,7 +47,7 @@ export class CountryComponent implements OnInit {
   }
 
   addCountry(newCode: string, newName: string): void {
-    let newcountry: Area = {code: newCode, name: newName};
+    let newcountry: Country = {code: newCode, name: newName};
     this.isDuplicate(newcountry);
     if(!this.isDuplicateCountry) {
       this.areaService.addCountry(newcountry);
@@ -57,7 +57,7 @@ export class CountryComponent implements OnInit {
   }
 
   updateCountry(newCode: string, newName: string): void {
-    let newcountry: Area = {code: newCode, name: newName};
+    let newcountry: Country = {code: newCode, name: newName};
     this.isDuplicate(newcountry);
     if(!this.isDuplicateCountry) {
       this.areaService.updateCountry(newcountry, this.selectedIndex);
@@ -84,7 +84,7 @@ export class CountryComponent implements OnInit {
     this.nameSelected = this.countries[myIndex].name;
   }
 
-  public isDuplicate(country: Area): void {
+  public isDuplicate(country: Country): void {
     for(let i = 0; i < COUNTRY.length; i++) {
       if(country.code == this.countries[i].code && i !== this.selectedIndex) {
         this.isCodeDuplicate = true;

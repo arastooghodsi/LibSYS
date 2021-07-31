@@ -4,12 +4,11 @@
   <input type="text" id="searchInput" #searchInputt 
         [(ngModel)] = searchInput class="form-control" 
         placeholder="عبارت مورد جستجو را وارد کند..."
-        (onkeyup) = "inputSearch()"
         />
   <label for="searchInput">عبارت مورد جستجو را وارد کند...</label>
-  <ul id="provinceList" *ngFor="let province of provinces">
+  <!-- <ul id="provinceList" *ngFor="let province of provinces">
     <li>{{province.name}}</li>
-  </ul>
+  </ul> -->
 </div>
 
 <table class="table">
@@ -33,6 +32,24 @@
 <!-- <form [formGroup]="inputForm"> -->
   <div *ngIf="isNew">
     <div class="form-floating mb-3">
+      <!-- <input type="search" class="form-control" 
+             id="countryOfProvince" #countryOfProvince 
+             [(ngModel)]=searchCountry
+             (onkeyup)="inputSearch()"
+             #countryName
+             placeholder="کشور مورد جستجو را وارد نمائید...">
+      <label for="countryOfProvince">کشور مورد جستجو را وارد نمائید...</label> -->
+      <!-- <div *ngIf="isSearchCountry"> -->
+        <!-- <ul *ngFor="let country of countries | searchFilter: searchCountry">
+          <li>
+            <button class="btn btn-primary">
+              {{country.name}}
+            </button></li>
+        </ul> -->
+      <!-- </div> -->
+
+    </div>
+    <div class="form-floating mb-3">
       <input type="text" class="form-control" id="floatingInput" #code placeholder="کد استان">
       <label for="floatingInput">کد استان</label>
     </div>
@@ -41,13 +58,31 @@
       <label for="floatingPassword">نام استان</label>
     </div><br>
     <div class="col-2">
-        <button class="btn btn-primary form-control" type="submit" (click) = "addProvince(code.value, name.value)">ذخیره کن</button>
+        <button class="btn btn-primary form-control" type="submit" (click) = "addProvince(code.value, name.value, name.value)">ذخیره کن</button>
     </div>
   </div>
 <!-- </form> -->
 
 <!-- Update Province -->
 <div *ngIf="isSelect">
+  <div class="form-floating mb-3">
+    <input type="search" class="form-control" 
+           id="countryOfProvince" #countryOfProvince 
+           [(ngModel)]=searchCountry
+           (onkeyup)="inputSearch()"
+           #countryName
+           placeholder="کشور مورد جستجو را وارد نمائید...">
+    <label for="countryOfProvince">کشور مورد جستجو را وارد نمائید...</label>
+    <!-- <div *ngIf="isSearchCountry"> -->
+      <ul *ngFor="let country of countries | searchFilter: searchCountry">
+        <li>
+          <button class="btn btn-primary">
+            {{country.name}}
+          </button></li>
+      </ul>
+    <!-- </div> -->
+
+  </div>
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="floatingInput" [(ngModel)]="codeSelected" #code placeholder="کد استان">
     <label for="floatingInput">کد استان</label>
@@ -57,9 +92,28 @@
     <label for="floatingPassword">نام استان</label>
   </div><br>
   <div class="col-2">
-      <button class="btn btn-primary form-control" type="submit" (click) = "updateProvince(code.value, name.value)">تغییر بده</button>
+      <button class="btn btn-primary form-control" type="submit" (click) = "updateProvince(code.value, name.value, countryName.value)">تغییر بده</button>
   </div><br>
   <div class="col-2">
     <button class="btn btn-primary form-control" type="submit" (click) = "deleteProvince()">حذف کن</button>
   </div>
 </div>
+
+<!-- <div class="container">
+	<div class="row">
+	    <form class="col-md-4">
+	        <label>Select</label>
+	        <select class="form-control select2">
+	           <option>Select</option> 
+	           <option>Car</option> 
+	           <option>Bike</option> 
+	           <option>Scooter</option> 
+	           <option>Cycle</option> 
+	           <option>Horse</option> 
+	        </select>
+	    </form>
+ 	</div>
+</div>
+<script>
+  $('.select2').select2();
+</script> -->

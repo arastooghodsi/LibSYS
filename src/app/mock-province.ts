@@ -1,8 +1,10 @@
-import { Area } from './area';
+import { Province } from './area';
 
-export let PROVINCE: Area[] = [
-    {code: "TEH", name: "تهران"},
-    {code: "HAM", name: "همدان"},
-    {code: "GIL", name: "گیلان"},
-    {code: "MAZ", name: "مازندران"}
+export let PROVINCE: Province[] = [
+    {code: "TEH", name: "تهران", countryName: "ایران"},
+    {code: "HAM", name: "همدان", countryName: "ایران"},
+    {code: "GIL", name: "گیلان", countryName: "ایران"},
+    {code: "GER", name: "برلین", countryName: "آلمان"},
+    {code: "BRZ", name: "برزیلیا", countryName: "برزیل"},
+    {code: "SPN", name: "مادرید", countryName: "اسپانیا"}
 ];
