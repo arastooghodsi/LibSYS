@@ -1,75 +1,15 @@
-<h1>آزمایشگاه</h1>
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">کارتابل</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">پذیرش</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              اطلاعات پایه
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">تعرفه و قیمت پارامترها</a></li>
-              <li>
-
-                <!-- <div class="btn-group">
-                  <div class="btn-group dropleft" role="group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="sr-only">Toggle Dropleft</span>
-                    </button>
-                    <div class="dropdown-menu">
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-secondary">
-                    Split dropleft
-                  </button>
-                </div> -->
-
-                <div class="btn-group dropleft">
-                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropleft
-                  </button>
-                  <div class="dropdown-menu">
-                    <!-- Dropdown menu links -->
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-
-                <!-- <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  ناحیه
-                </a>
-                <ul>
-                  <li><a class="dropdown-item" href="#">کشور</a></li>
-                  <li><a class="dropdown-item" href="#">استان</a></li>
-                  <li><a class="dropdown-item" href="#">شهر</a></li>
-                </ul> -->
-              </li>
-              <li><a class="dropdown-item" href="#">حوزه فعالیت</a></li>
-              <li><a class="dropdown-item" href="#">استاندارد و دستورالعمل</a></li>
-              <li><a class="dropdown-item" href="#">اطلاعات پارامترها</a></li>
-              <li><a class="dropdown-item" href="#">تجهیزات</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active disabled" href="#" tabindex="-1" aria-disabled="true">تنظیمات سیستمی</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+<div class="container-fluid" style="text-align: center; background-color: aqua;">
+  <div id="navbar">
+    <app-navbar></app-navbar>
+  </div>
+  <div id="header">
+  </div>
+  <div class="row">
+    <div id="menuSection" class="allMatches col-md-3">
     </div>
-  </nav>
+    <div id="contentSection" class="featured col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
 </div>
-
-<br><br><br><br><br>
-

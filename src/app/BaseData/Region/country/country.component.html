@@ -1,1 +1,68 @@
-<p>country works!</p>
+<div class="row">
+    <div class="col-sm-12 col-sm-12 col-md-4 col-xl-4">
+    
+        <form class="form">
+            <div class="form-group">
+              <label for="countryCode" class="control-label">کد کشور</label>
+              <div class="col-sm-10 col-md-10 col-sm-10 col-xl-10">
+                <input type="text" class="form-control" id="countryCode" placeholder="کد">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="countryName" class="control-label">نام کشور</label>
+              <div class="ccol-sm-10 col-md-10 col-sm-10 col-xl-10">
+                <input type="text" class="form-control" id="countryName" placeholder="نام">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-primary col-lg-6 col-sm-6 col-md-6 col-xs-6">اضافه کردن</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-primary col-lg-6 col-sm-6 col-md-6 col-xs-6">بروز کردن</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-danger col-lg-6 col-sm-6 col-md-6 col-xs-6">حذف کردن</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-warning col-lg-6 col-sm-6 col-md-6 col-xs-6">نمایش جدول</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12 col-sm-12 col-md-8 col-xl-8">
+        <table class="table table-striped col-sm-12 col-sm-12 col-md-7 col-xl-7">
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام</th>
+                    <th>کد</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries; let i = index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ country.countryName }}</td>
+                    <td>{{ country.countryCode }}</td>
+                </tr>
+                <!-- <tr>
+                    <td>2</td>
+                    <td>آمریکا</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>آلمان</td>
+                    <td>GER</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>

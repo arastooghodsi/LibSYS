@@ -1,0 +1,48 @@
+.navbar1 li:hover ul {
+    visibility: visible;
+}
+.navbar1 li{
+    display: inline-block;
+}
+.navbar1 li a{
+    font-size: 12px;
+    color: black;
+    background-color: #bec5bb;
+    padding: 5px 20px 5px 20px;
+    margin: 28px 3px 0px 0px;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+}
+.navbar1 li a:hover{
+    opacity: 0.5;
+}
+.navbar1 li ul li a{
+    font-size:11px;
+    background-color: transparent;
+    padding: 9px 5px 3px 5px;
+    margin: 2px 15px 2px 19px;
+}
+.navbar1 li ul{
+    position: absolute;
+    visibility: hidden;
+    background-color: #f1e5e5;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px 10px #d8d0d0;
+    border: 1px solid #DEDEDE;
+    transition: all 2ms linear;
+    padding: 0px 0 0 0;
+    margin: 4px 44px 0 0;
+    color: black;
+}
+.navbar1 li ul li{
+    display: block;
+}
+.navbar1 li ul li ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.navbar1 li ul li:hover ul{
+    visibility: visible;
+    position: relative;
+}
