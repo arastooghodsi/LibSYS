@@ -7,7 +7,8 @@ import { COUNTRY } from './area-mock';
 })
 export class AreaService {
 
-  flag: boolean = true;
+  codeFlag: boolean = true;
+  nameFlag: boolean = true;
   constructor() { }
 
   getCountry() {
@@ -15,21 +16,42 @@ export class AreaService {
   }
 
   addCountry(country: Country): void {
-    Promise.resolve(COUNTRY).then((countries: Country[]) => countries.push(country));
+    // for(let i=0; i<COUNTRY.length; i++) {
+    //   if(COUNTRY[i].countryCode == country.countryCode) {
+    //     this.codeFlag = false;
+    //     break;
+    //   } else if(COUNTRY[i].countryName == country.countryName) {
+    //     this.nameFlag = false;
+    //     break;
+    //   } else {
+    //     continue;
+    //   }
+    // }
+    // if(this.codeFlag && this.nameFlag) {
+      Promise.resolve(COUNTRY).then((countries: Country[]) => countries.push(country));
+    //   return 0;
+    // } else if(!this.codeFlag && this.nameFlag) {
+    //   return 1;
+    // } else if(this.codeFlag && !this.nameFlag) {
+    //   return 2;
+    // } else {
+    //   return 3;
+    // }
   }
 
   updateCountry(country: Country, index: number): any{
-    for(let i = 0; i<COUNTRY.length; i++) {
-      if(COUNTRY[i] == country) {
-        this.flag = false;
-        break;
-      } else {
-        continue;
-      }
-    }
-    if(this.flag) {
-      Promise.resolve(COUNTRY).then((countries: Country[]) => countries.push(country));
-    }
-    return this.flag;
+    // for(let i = 0; i<COUNTRY.length; i++) {
+    //   if(COUNTRY[i].countryCode == country.countryCode) {
+    //     // this.flag = false;
+    //     break;
+    //   } else {
+    //     continue;
+    //   }
+    // }
+    // if(this.flag) {
+    //   Promise.resolve(COUNTRY).then((countries: Country[]) => countries[index].countryCode = country.countryCode);
+    //   Promise.resolve(COUNTRY).then((countries: Country[]) => countries[index].countryName = country.countryName);
+    // }
+    // return this.flag;
   }
 }

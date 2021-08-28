@@ -35,16 +35,16 @@ export class CountryComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.inputForm);
     this.newCountry.countryCode = this.inputForm.value.countryCode;
     this.newCountry.countryName = this.inputForm.value.countryName;
+    this.inputForm.reset();
   }
 
   selectRow(index: number): void {
     // this.isSelected = true;
-    this.selectedIndex = index;
-    this.newCountry.countryCode = COUNTRY[index].countryCode;
-    this.newCountry.countryName = COUNTRY[index].countryName;
+    // this.selectedIndex = index+1;
+    // this.newCountry.countryCode = COUNTRY[this.selectedIndex].countryCode;
+    // this.newCountry.countryName = COUNTRY[this.selectedIndex].countryName;
   }
 
   getCountry(): void {
@@ -53,13 +53,17 @@ export class CountryComponent implements OnInit {
 
   add():void {
     this.areaService.addCountry(this.newCountry);
+    this.inputForm.reset();
   }
 
   update(): void {
+    console.log(this.newCountry);
+    console.log(this.selectedIndex);
     let flag = this.areaService.updateCountry(this.newCountry, this.selectedIndex);
     if(!flag) {
       alert("این مقادیر تکراریست.")
     }
+    this.inputForm.reset();
   }
 
 }
